@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1004900766701",
+    "firebase_url": "https://mdbsocials-22fbc.firebaseio.com",
+    "project_id": "mdbsocials-22fbc",
+    "storage_bucket": "mdbsocials-22fbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004900766701:android:0b3a054eeb7651a3",
+        "android_client_info": {
+          "package_name": "com.example.isthisangela.mdbsocials"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004900766701-6ouhgng3dc8mbd24jk91bjunu3k5oq0q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.isthisangela.mdbsocials",
+            "certificate_hash": "3826eeed1b88016b5e6ea53fadfc96ee9f3b3994"
+          }
+        },
+        {
+          "client_id": "1004900766701-kpjl73i81hlqidm17bhp8efa0951gisd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-dRl1Na5TAdKl1b0VXUAyjMM-6wg_-m4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1004900766701-kpjl73i81hlqidm17bhp8efa0951gisd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
