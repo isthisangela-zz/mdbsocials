@@ -33,7 +33,7 @@ public class Utils {
     public Utils() {
 
         events = new ArrayList<Event>();
-        ref = FirebaseDatabase.getInstance().getReference("/socials");
+        ref = FirebaseDatabase.getInstance().getReference("/events");
 
         ref.orderByChild("date").addChildEventListener(new ChildEventListener() {
             @Override

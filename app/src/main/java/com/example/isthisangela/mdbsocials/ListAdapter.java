@@ -74,11 +74,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
 
         public CustomViewHolder(View view) {
             super(view);
-            this.name = (TextView) view.findViewById(R.id.name);
-            this.email = (TextView) view.findViewById(R.id.email);
-            this.interested = (TextView) view.findViewById(R.id.interested);
-            this.pic = (ImageView) view.findViewById(R.id.pic);
-            this.cardView = (CardView) view.findViewById(R.id.cardView);
+            this.name = view.findViewById(R.id.name);
+            this.email = view.findViewById(R.id.email);
+            this.interested = view.findViewById(R.id.interested);
+            this.pic = view.findViewById(R.id.pic);
+            this.cardView = view.findViewById(R.id.cardView);
             view.setOnClickListener(this);
         }
 

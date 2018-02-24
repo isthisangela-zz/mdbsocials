@@ -105,11 +105,6 @@ public class MainActivity extends AppCompatActivity {
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.d("whao", "createUserWithEmail:onComplete:" + task.isSuccessful());
-
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(MainActivity.this, "Signup failed?!", Toast.LENGTH_SHORT).show();
                                 } else {
