@@ -34,11 +34,11 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHolder> {
     private Context context;
-    private ArrayList<Utils.Event> data;
+    private ArrayList<Utils.Event> events;
 
-    public ListAdapter(Context context, ArrayList<Utils.Event> data) {
+    public ListAdapter(Context context, ArrayList<Utils.Event> events) {
         this.context = context;
-        this.data = data;
+        this.events = events;
     }
 
 
@@ -51,10 +51,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
 
     @Override
     public void onBindViewHolder(final CustomViewHolder holder, int position) {
-        Utils.Event e = data.get(position);
+        Utils.Event e = events.get(position);
         holder.name.setText(e.getName());
         holder.email.setText(e.getEmail());
         holder.interested.setText(e.getInterested());
+        Utils.setBitmap(context, holder.cardView, holder.pic.getId(), e.getId());
 
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(e.getPic() + ".png");
         Glide.with(context).using(new FirebaseImageLoader()).load(storageReference).into(holder.pic);
@@ -63,12 +64,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return events.size();
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, email, interested;
         ImageView pic;
+        CardView cardView;
 
         public CustomViewHolder(View view) {
             super(view);
@@ -76,14 +78,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
             this.email = (TextView) view.findViewById(R.id.email);
             this.interested = (TextView) view.findViewById(R.id.interested);
             this.pic = (ImageView) view.findViewById(R.id.pic);
+            this.cardView = (CardView) view.findViewById(R.id.cardView);
+            view.setOnClickListener(this);
         }
 
-        void bind(Utils.Event event) {
-            final Utils.Event e = event;
-            name.setText(e.getName());
-            email.setText(e.getEmail());
-            interested.setText("" + e.getInterested());
-
+        @Override
+        public void onClick(View v) {
+            Utils.Event e = events.get(getAdapterPosition());
+            Intent intent = new Intent(context, EventActivity.class);
+            intent.putExtra("id", e.getId());
+            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
         }
     }
 }

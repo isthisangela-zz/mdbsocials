@@ -26,6 +26,8 @@ public class EventActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         interested = findViewById(R.id.interested);
         interestedButton = findViewById(R.id.interestedbutton);
+
+
     }
 
 
