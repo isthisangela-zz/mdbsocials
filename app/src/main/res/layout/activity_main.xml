@@ -7,12 +7,12 @@
     tools:context="com.example.isthisangela.mdbsocials.MainActivity">
 
     <EditText
-        android:id="@+id/emailView"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="42dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/passwordView"
+        android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -32,29 +32,29 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailView" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/login"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="Log In"
         android:textColor="@color/cardview_light_background"
-        app:layout_constraintStart_toStartOf="@+id/passwordView"
-        app:layout_constraintTop_toBottomOf="@+id/passwordView" />
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
-        android:id="@+id/signupButton"
+        android:id="@+id/signup"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="Sign Up"
         android:textColor="@color/cardview_light_background"
-        app:layout_constraintEnd_toEndOf="@+id/passwordView"
-        app:layout_constraintTop_toBottomOf="@+id/passwordView" />
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <ImageView
         android:id="@+id/imageView2"

@@ -34,9 +34,9 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHolder> {
     private Context context;
-    private ArrayList<Event> data;
+    private ArrayList<Utils.Event> data;
 
-    public ListAdapter(Context context, ArrayList<Event> data) {
+    public ListAdapter(Context context, ArrayList<Utils.Event> data) {
         this.context = context;
         this.data = data;
     }
@@ -51,15 +51,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
 
     @Override
     public void onBindViewHolder(final CustomViewHolder holder, int position) {
-        Event e = data.get(position);
-        holder.title.setText(e.getTitle());
+        Utils.Event e = data.get(position);
+        holder.name.setText(e.getName());
         holder.email.setText(e.getEmail());
         holder.interested.setText(e.getInterested());
 
-        //haven't taught this yet but essentially it runs separately from the UI
-        //TODO: figure this out
-//        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(e.pic + ".png");
-//        Glide.with(context).using(new FirebaseImageLoader()).load(storageReference).into(holder.pic);
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(e.getPic() + ".png");
+        Glide.with(context).using(new FirebaseImageLoader()).load(storageReference).into(holder.pic);
     }
 
 
@@ -68,19 +66,24 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
         return data.size();
     }
 
-    /**
-     * A card displayed in the RecyclerView
-     */
-    class CustomViewHolder extends RecyclerView.ViewHolder {
-        TextView title, email, interested;
+    class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        TextView name, email, interested;
         ImageView pic;
 
         public CustomViewHolder(View view) {
             super(view);
-            this.title = (TextView) view.findViewById(R.id.title);
+            this.name = (TextView) view.findViewById(R.id.name);
             this.email = (TextView) view.findViewById(R.id.email);
             this.interested = (TextView) view.findViewById(R.id.interested);
             this.pic = (ImageView) view.findViewById(R.id.pic);
+        }
+
+        void bind(Utils.Event event) {
+            final Utils.Event e = event;
+            name.setText(e.getName());
+            email.setText(e.getEmail());
+            interested.setText("" + e.getInterested());
+
         }
     }
 }
